@@ -12,5 +12,4 @@ Downloading currency rates from the National Bank of Poland (NBP Web API).
 Support for foreign currencies.
 
 ## Technologies
-.NET 8 & C# 12
-ASP.NET Core (WebAPI & Blazor)
+.NET 8 & C# 12, ASP.NET Core (WebAPI & Blazor)
