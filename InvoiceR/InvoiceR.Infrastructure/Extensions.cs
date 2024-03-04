@@ -15,6 +15,7 @@ public static class Extensions
         services.AddScoped<ICustomerReadOnlyRepository, CustomerReadOnlyRepository>();
         services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<ICountryReadOnlyRepository, CountryReadOnlyRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         services.AddDbContext<InvoicerDbContext>(ctx => ctx.UseSqlServer(configuration.GetConnectionString("InvoicerConnectionString")));
 
