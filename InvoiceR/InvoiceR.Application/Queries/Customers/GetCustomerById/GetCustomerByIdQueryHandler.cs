@@ -1,10 +1,10 @@
-﻿using InvoiceR.Application.Dto;
+﻿using InvoiceR.Application.Configuration.Queries;
+using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
-using MediatR;
 
 namespace InvoiceR.Application.Queries.Customers.GetCustomerById;
 
-internal class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, CustomerDetailDto>
+internal class GetCustomerByIdQueryHandler : IQueryHandler<GetCustomerByIdQuery, CustomerDetailDto>
 {
     private readonly ICustomerReadOnlyRepository _customerReadOnlyRepository;
 

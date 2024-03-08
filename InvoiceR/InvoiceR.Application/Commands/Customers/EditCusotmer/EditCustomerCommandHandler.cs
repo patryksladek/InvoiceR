@@ -1,11 +1,11 @@
-﻿using InvoiceR.Domain.Abstractions;
+﻿using InvoiceR.Application.Configuration.Commands;
+using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Enums;
 using InvoiceR.Domain.Exceptions;
-using MediatR;
 
 namespace InvoiceR.Application.Commands.Customers.EditCusotmer;
 
-internal class EditCustomerCommandHandler : IRequestHandler<EditCustomerCommand>
+internal class EditCustomerCommandHandler : ICommandHandler<EditCustomerCommand>
 {
     private readonly ICustomerRepository _customerRepository;
     private readonly IUnitOfWork _unitOfWork;

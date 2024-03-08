@@ -1,5 +1,5 @@
-﻿using MediatR;
+﻿using InvoiceR.Application.Configuration.Commands;
 
 namespace InvoiceR.Application.Commands.Customers.RemoveCustomer;
 
-public record RemoveCustomerCommand(int Id) : IRequest;
+public record RemoveCustomerCommand(int Id) : ICommand;

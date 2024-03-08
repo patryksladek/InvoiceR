@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using InvoiceR.Application.Configuration.Commands;
 
 namespace InvoiceR.Application.Commands.Customers.EditCusotmer;
 
-public class EditCustomerCommand : IRequest
+public class EditCustomerCommand : ICommand
 {
     public int Id { get; set; }
     public string Name { get; set; }

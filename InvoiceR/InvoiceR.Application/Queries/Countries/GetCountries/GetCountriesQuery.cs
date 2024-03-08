@@ -1,6 +1,6 @@
-﻿using InvoiceR.Application.Dto;
-using MediatR;
+﻿using InvoiceR.Application.Configuration.Queries;
+using InvoiceR.Application.Dto;
 
 namespace InvoiceR.Application.Queries.Countries.GetCountries;
 
-public record GetCountriesQuery : IRequest<IReadOnlyCollection<CountryDto>>;
+public record GetCountriesQuery : IQuery<IReadOnlyCollection<CountryDto>>;

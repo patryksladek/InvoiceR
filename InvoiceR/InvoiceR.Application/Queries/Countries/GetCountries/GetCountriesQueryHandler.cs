@@ -1,11 +1,11 @@
-﻿using InvoiceR.Application.Dto;
+﻿using InvoiceR.Application.Configuration.Queries;
+using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Application.Queries.Countries.GetCountries;
 
-internal class GetCountriesQueryHandler : IRequestHandler<GetCountriesQuery, IReadOnlyCollection<CountryDto>>
+internal class GetCountriesQueryHandler : IQueryHandler<GetCountriesQuery, IReadOnlyCollection<CountryDto>>
 {
     private readonly ICountryReadOnlyRepository _countryReadOnlyRepository;
 

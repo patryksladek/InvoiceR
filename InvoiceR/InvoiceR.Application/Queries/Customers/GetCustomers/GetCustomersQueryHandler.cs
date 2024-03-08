@@ -1,11 +1,11 @@
-﻿using InvoiceR.Application.Dto;
+﻿using InvoiceR.Application.Configuration.Queries;
+using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Application.Queries.Customers.GetCustomers;
 
-internal class GetCustomersQueryHandler : IRequestHandler<GetCustomersQuery, IReadOnlyCollection<CustomerDto>>
+internal class GetCustomersQueryHandler : IQueryHandler<GetCustomersQuery, IReadOnlyCollection<CustomerDto>>
 {
     private readonly ICustomerReadOnlyRepository _customerReadOnlyRepository;
 

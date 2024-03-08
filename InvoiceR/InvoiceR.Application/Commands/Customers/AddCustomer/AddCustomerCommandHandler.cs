@@ -1,13 +1,13 @@
-﻿using InvoiceR.Application.Dto;
+﻿using InvoiceR.Application.Configuration.Commands;
+using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Entities.Customers;
 using InvoiceR.Domain.Enums;
 using InvoiceR.Domain.Exceptions;
-using MediatR;
 
 namespace InvoiceR.Application.Commands.Customers.AddCustomer;
 
-internal class AddCustomerCommandHandler : IRequestHandler<AddCustomerCommand, CustomerDetailDto>
+internal class AddCustomerCommandHandler : ICommandHandler<AddCustomerCommand, CustomerDetailDto>
 {
     private readonly ICustomerRepository _customerRepository;
     private readonly IUnitOfWork _unitOfWork;

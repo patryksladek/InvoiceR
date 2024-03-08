@@ -1,10 +1,10 @@
-﻿using InvoiceR.Domain.Abstractions;
+﻿using InvoiceR.Application.Configuration.Commands;
+using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Exceptions;
-using MediatR;
 
 namespace InvoiceR.Application.Commands.Customers.RemoveCustomer;
 
-internal class RemoveCustomerCommandHandler : IRequestHandler<RemoveCustomerCommand>
+internal class RemoveCustomerCommandHandler : ICommandHandler<RemoveCustomerCommand>
 {
     private readonly ICustomerRepository _customerRepository;
     private readonly IUnitOfWork _unitOfWork;

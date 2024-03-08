@@ -1,9 +1,9 @@
-﻿using InvoiceR.Application.Dto;
-using MediatR;
+﻿using InvoiceR.Application.Configuration.Commands;
+using InvoiceR.Application.Dto;
 
 namespace InvoiceR.Application.Commands.Customers.AddCustomer;
 
-public class AddCustomerCommand : IRequest<CustomerDetailDto>
+public class AddCustomerCommand : ICommand<CustomerDetailDto>
 {
     public string Name { get; set; }
     public string Code { get; set; }

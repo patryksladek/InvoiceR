@@ -1,6 +1,7 @@
-﻿using InvoiceR.Application.Dto;
+﻿using InvoiceR.Application.Configuration.Queries;
+using InvoiceR.Application.Dto;
 using MediatR;
 
 namespace InvoiceR.Application.Queries.Customers.GetCustomerById;
 
-public record GetCustomerByIdQuery(int Id) : IRequest<CustomerDetailDto>;
+public record GetCustomerByIdQuery(int Id) : IQuery<CustomerDetailDto>;
