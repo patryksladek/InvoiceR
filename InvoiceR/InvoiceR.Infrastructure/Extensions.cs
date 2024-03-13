@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NLog.Web;
 
 namespace InvoiceR.Infrastructure;
 
@@ -20,6 +21,12 @@ public static class Extensions
         services.AddDbContext<InvoicerDbContext>(ctx => ctx.UseSqlServer(configuration.GetConnectionString("InvoiceR")));
 
         return services;
+    }
+    public static ConfigureHostBuilder UseInfrastructure(this ConfigureHostBuilder hostBuilder)
+    {
+        hostBuilder.UseNLog();
+
+        return hostBuilder;
     }
 
     public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)

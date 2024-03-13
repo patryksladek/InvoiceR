@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
+using InvoiceR.Application.Behaviors;
 using InvoiceR.Application.Commands.Customers.AddCustomer;
 using InvoiceR.Application.Commands.Customers.EditCusotmer;
-using InvoiceR.Application.Configuration.Validation.Behaviors;
 using InvoiceR.Application.Middlewares;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -19,7 +19,9 @@ public static class Extensions
         services.AddScoped<IValidator<AddCustomerCommand>, AddCustomerCommandValidator>();
         services.AddScoped<IValidator<EditCustomerCommand>, EditCustomerCommandValidator>();
 
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestLoggingBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidationBehavior<,>));
+        
         services.AddTransient<ExceptionHandlingMiddleware>();
 
         return services;

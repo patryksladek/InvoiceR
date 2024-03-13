@@ -2,7 +2,7 @@
 using FluentValidation;
 using MediatR;
 
-namespace InvoiceR.Application.Configuration.Validation.Behaviors;
+namespace InvoiceR.Application.Behaviors;
 
 public class CommandValidationBehavior<TRequst, TResponse> : IPipelineBehavior<TRequst, TResponse>
     where TRequst : class, IRequest<TResponse>
