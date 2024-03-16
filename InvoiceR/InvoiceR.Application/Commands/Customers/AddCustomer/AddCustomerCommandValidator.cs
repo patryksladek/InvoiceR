@@ -17,10 +17,6 @@ public class AddCustomerCommandValidator : AbstractValidator<AddCustomerCommand>
             .NotEmpty().WithMessage(ValidationMessageConstans.NotEmpty).WithSeverity(Severity.Error)
             .MaximumLength(CustomerValidationRuleConstans.MaximumNameLength).WithMessage(ValidationMessageConstans.MaximumLength(CustomerValidationRuleConstans.MaximumNameLength)).WithSeverity(Severity.Error);
 
-        RuleFor(x => x.Code)
-            .NotEmpty().WithMessage(ValidationMessageConstans.NotEmpty).WithSeverity(Severity.Error)
-            .MaximumLength(CustomerValidationRuleConstans.MaximumCodeLength).WithMessage(ValidationMessageConstans.MaximumLength(CustomerValidationRuleConstans.MaximumCodeLength)).WithSeverity(Severity.Error);
-
         RuleFor(x => x.NIP)
             .MaximumLength(CustomerValidationRuleConstans.MaximumNipLength).WithMessage(ValidationMessageConstans.MaximumLength(CustomerValidationRuleConstans.MaximumNipLength)).WithSeverity(Severity.Error);
 
