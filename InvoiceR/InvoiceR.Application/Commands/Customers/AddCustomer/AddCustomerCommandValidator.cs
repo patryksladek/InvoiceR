@@ -14,6 +14,7 @@ public class AddCustomerCommandValidator : AbstractValidator<AddCustomerCommand>
     public override Task<ValidationResult> ValidateAsync(ValidationContext<AddCustomerCommand> context, CancellationToken cancellation = default)
     {
         RuleFor(x => x.Name)
+            .NotNull().WithMessage(ValidationMessageConstans.NotEmpty).WithSeverity(Severity.Error)
             .NotEmpty().WithMessage(ValidationMessageConstans.NotEmpty).WithSeverity(Severity.Error)
             .MaximumLength(CustomerValidationRuleConstans.MaximumNameLength).WithMessage(ValidationMessageConstans.MaximumLength(CustomerValidationRuleConstans.MaximumNameLength)).WithSeverity(Severity.Error);
 
