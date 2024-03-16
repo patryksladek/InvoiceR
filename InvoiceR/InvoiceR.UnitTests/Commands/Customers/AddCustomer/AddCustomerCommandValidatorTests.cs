@@ -2,19 +2,14 @@
 using InvoiceR.Application.Commands.Customers.AddCustomer;
 using InvoiceR.Domain.Abstractions;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InvoiceR.UnitTests.Commands.Customers.AddCustomer;
 
-public class AddCustomerCommandValidationTests
+public class AddCustomerCommandValidatorTests
 {
     private readonly Mock<ICustomerRepository> _customerRepositoryMock;
 
-    public AddCustomerCommandValidationTests()
+    public AddCustomerCommandValidatorTests()
     {
         _customerRepositoryMock = new();
     }
