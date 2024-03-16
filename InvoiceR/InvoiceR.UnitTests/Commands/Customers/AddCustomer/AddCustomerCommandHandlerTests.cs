@@ -3,11 +3,6 @@ using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Entities.Customers;
 using InvoiceR.Domain.Exceptions;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InvoiceR.UnitTests.Commands.Customers.AddCustomer;
 
@@ -66,7 +61,7 @@ public class AddCustomerCommandHandlerTests
     }
 
     [Fact]
-    public async Task Handle_Should_ThrowStudentAlreadyExistsException_WhenNameIsNotUnique()
+    public async Task Handle_Should_ThrowCustomerAlreadyExistsException_WhenNameIsNotUnique()
     {
         // Arrange
         var command = new AddCustomerCommand()
