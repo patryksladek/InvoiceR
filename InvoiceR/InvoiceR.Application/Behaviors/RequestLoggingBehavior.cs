@@ -23,8 +23,6 @@ public class RequestLoggingBehavior<TRequst, TResponse>(ILogger<RequestLoggingBe
 
         logger.LogInformation($"Processing request {requestName}");
 
-        TResponse result = await next();
-
         return await next();
     }
 }

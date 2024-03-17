@@ -21,3 +21,5 @@ app.UseInfrastructure();
 app.UseApplication();
 
 app.Run();
+
+public partial class Program { }
