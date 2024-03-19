@@ -6,7 +6,6 @@ namespace InvoiceR.Domain.Entities.Products;
 public class Product : AuditableEntity
 {
     public string Name { get; set; }
-    public string Code { get; set; }
     public ProductType Type { get; set; }
     public string Barcode { get; set; }
     public ProductBarcodeType BarcodeType { get; set; }
