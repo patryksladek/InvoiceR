@@ -12,6 +12,7 @@ public class Product : AuditableEntity
     public int CurrencyId { get; set; }
     public Currency Currency { get; set; }
     public int UnitId { get; set; }
+    public Unit Unit { get; set; }
     public int VatRateId { get; set; }
     public VatRate VatRate { get; set; }
     public decimal NetPrice { get; set; }

@@ -27,6 +27,10 @@ public class ProductConfiguration : AuditableEntityConfiguration<Product>
             .WithMany(g => g.Products)
             .HasForeignKey(s => s.CurrencyId);
 
+        builder.HasOne(s => s.Unit)
+           .WithMany(g => g.Products)
+           .HasForeignKey(s => s.UnitId);
+
         builder.HasOne(s => s.VatRate)
            .WithMany(g => g.Products)
            .HasForeignKey(s => s.VatRateId);
