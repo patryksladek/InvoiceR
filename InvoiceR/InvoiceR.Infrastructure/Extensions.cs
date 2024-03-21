@@ -17,6 +17,11 @@ public static class Extensions
         services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<ICountryReadOnlyRepository, CountryReadOnlyRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IProductReadOnlyRepository, ProductReadOnlyRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IUnitReadOnlyRepository, UnitReadOnlyRepository>();
+        services.AddScoped<IVatRateReadOnlyRepository, VatRateReadOnlyRepository>();
+        services.AddScoped<ICurrencyReadOnlyRepository, CurrencyReadOnlyRepository>();
 
         services.AddDbContext<InvoicerDbContext>(ctx => ctx.UseSqlServer(configuration.GetConnectionString("InvoiceR")));
 
