@@ -16,6 +16,7 @@ public class InvoicerDbContext : DbContext
     public DbSet<Unit> Units { get; set; }
     public DbSet<VatRate> VatRates { get; set; }
     public DbSet<Currency> Currencies { get; set; }
+    public DbSet<ExchangeRate> ExchangeRates { get; set; }
 
     public InvoicerDbContext(DbContextOptions options) : base(options)
     {
@@ -30,6 +31,7 @@ public class InvoicerDbContext : DbContext
 
         modelBuilder.ApplyConfiguration(new ProductConfiguration());
         modelBuilder.ApplyConfiguration(new UnitConfiguration());
+        modelBuilder.ApplyConfiguration(new ExchangeRateConfiguration());
 
         modelBuilder.ApplyConfiguration(new VatRateConfiguration());
         modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
