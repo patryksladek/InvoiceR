@@ -1,4 +1,5 @@
 ﻿using InvoiceR.Domain.Entities.Definitions;
+using InvoiceR.Domain.Entities.Invoices;
 using InvoiceR.Domain.Enums;
 
 namespace InvoiceR.Domain.Entities.Products;
@@ -16,4 +17,5 @@ public class Product : AuditableEntity
     public int VatRateId { get; set; }
     public VatRate VatRate { get; set; }
     public decimal NetPrice { get; set; }
+    public ICollection<InvoiceItem> InvoiceItems { get; set; }
 }

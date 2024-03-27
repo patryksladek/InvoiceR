@@ -1,4 +1,5 @@
-﻿using InvoiceR.Domain.Enums;
+﻿using InvoiceR.Domain.Entities.Invoices;
+using InvoiceR.Domain.Enums;
 
 namespace InvoiceR.Domain.Entities.Customers;
 
@@ -10,4 +11,5 @@ public class Customer : AuditableEntity
     public Address Address { get; set; }
     public Contact Contact { get; set; }
     public bool IsActive { get; set; }
+    public ICollection<Invoice> Invoices { get; set; }
 }
