@@ -1,8 +1,10 @@
 ﻿using InvoiceR.Domain.Entities.Customers;
 using InvoiceR.Domain.Entities.Definitions;
+using InvoiceR.Domain.Entities.Invoices;
 using InvoiceR.Domain.Entities.Products;
 using InvoiceR.Infrastructure.Config.Customers;
 using InvoiceR.Infrastructure.Config.Definitions;
+using InvoiceR.Infrastructure.Config.Invoices;
 using InvoiceR.Infrastructure.Config.Products;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +19,7 @@ public class InvoicerDbContext : DbContext
     public DbSet<VatRate> VatRates { get; set; }
     public DbSet<Currency> Currencies { get; set; }
     public DbSet<ExchangeRate> ExchangeRates { get; set; }
+    public DbSet<Invoice> Invoices { get; set; }
 
     public InvoicerDbContext(DbContextOptions options) : base(options)
     {
@@ -35,6 +38,12 @@ public class InvoicerDbContext : DbContext
 
         modelBuilder.ApplyConfiguration(new VatRateConfiguration());
         modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
+
+        modelBuilder.ApplyConfiguration(new VatRateConfiguration());
+        modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
+
+        modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
+        modelBuilder.ApplyConfiguration(new InvoiceItemConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }
