@@ -20,6 +20,8 @@ public class InvoicerDbContext : DbContext
     public DbSet<Currency> Currencies { get; set; }
     public DbSet<ExchangeRate> ExchangeRates { get; set; }
     public DbSet<Invoice> Invoices { get; set; }
+    public DbSet<InvoiceItem> InvoiceItems { get; set; }
+
 
     public InvoicerDbContext(DbContextOptions options) : base(options)
     {

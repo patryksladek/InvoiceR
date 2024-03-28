@@ -22,6 +22,8 @@ public static class Extensions
         services.AddScoped<IUnitReadOnlyRepository, UnitReadOnlyRepository>();
         services.AddScoped<IVatRateReadOnlyRepository, VatRateReadOnlyRepository>();
         services.AddScoped<ICurrencyReadOnlyRepository, CurrencyReadOnlyRepository>();
+        services.AddScoped<IInvoiceReadOnlyRepository, InvoiceReadOnlyRepository>();
+        services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 
         services.AddDbContext<InvoicerDbContext>(ctx => ctx.UseSqlServer(configuration.GetConnectionString("InvoiceR")));
 
