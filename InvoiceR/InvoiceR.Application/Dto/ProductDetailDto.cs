@@ -4,7 +4,6 @@ public class ProductDetailDto
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public string Code { get; set; }
     public string ProductType { get; set; }
     public string Barcode { get; set; }
     public string ProductBarcodeType { get; set; }
