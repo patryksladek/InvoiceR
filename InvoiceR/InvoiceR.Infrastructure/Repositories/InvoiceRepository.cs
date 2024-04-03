@@ -30,9 +30,9 @@ internal class InvoiceRepository : IInvoiceRepository
     {
         int currentYear = DateTime.Now.Year;
 
-        string lastFullInvoiceNumber = ((await _dbContext.Invoices.ToListAsync())
-            .Where(x => x.Date.Year == currentYear)
-            .Last()).Number;
+        var invoices = await _dbContext.Invoices.Where(x => x.Date.Year == currentYear).ToListAsync();
+
+        string lastFullInvoiceNumber = invoices.Count() > 0 ? invoices.Last().Number : "FV/00000/00";
 
         int lastInvoiceNumber = int.Parse(lastFullInvoiceNumber.Substring(3, 5));
 

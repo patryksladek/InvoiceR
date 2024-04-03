@@ -1,5 +1,4 @@
-﻿using InvoiceR.Application.Commands.Invoices.AddInvoice;
-using InvoiceR.Application.Configuration.Queries;
+﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Enums;
