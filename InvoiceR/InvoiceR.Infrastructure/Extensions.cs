@@ -1,6 +1,7 @@
 ﻿using InvoiceR.Domain.Abstractions;
 using InvoiceR.Infrastructure.Context;
 using InvoiceR.Infrastructure.Converters;
+using InvoiceR.Infrastructure.DataGeneration;
 using InvoiceR.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,7 @@ public static class Extensions
         services.AddScoped<IInvoiceRepository, InvoiceRepository>();
         services.AddScoped<ICurrencyConverter, CurrencyConverter>();
         services.AddScoped<IExchangeRateReadOnlyRepository, ExchangeRateReadOnlyRepository>();
+        services.AddDataGenerator();
 
         services.AddDbContext<InvoicerDbContext>(ctx => ctx.UseSqlServer(configuration.GetConnectionString("InvoiceR")));
 
