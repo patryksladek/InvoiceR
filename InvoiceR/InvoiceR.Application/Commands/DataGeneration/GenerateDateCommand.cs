@@ -2,4 +2,4 @@
 
 namespace InvoiceR.Application.Commands.DataGeneration;
 
-public record GenerateDateCommand(int customersCount, int productsCount, int invoicesCount) : ICommand;
+public record GenerateDateCommand(int CustomersCount, int ProductsCount, int InvoicesCount) : ICommand;

@@ -1,6 +1,4 @@
-﻿using InvoiceR.Application.Commands.Customers.AddCustomer;
-using InvoiceR.Application.Configuration.Commands;
-using InvoiceR.Application.Dto;
+﻿using InvoiceR.Application.Configuration.Commands;
 using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Exceptions;
 
@@ -20,6 +18,6 @@ internal class GenerateDateCommandHandler : ICommandHandler<GenerateDateCommand>
         if (!_dataGenerator.IsNoData())
             throw new NotEmptyDatabaseException();
 
-        await _dataGenerator.GenerateData(request.customersCount, request.productsCount, request.invoicesCount);
+        await _dataGenerator.GenerateData(request.CustomersCount, request.ProductsCount, request.InvoicesCount);
     }
 }
