@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Bogus" Version="35.5.0" />
+    <PackageReference Include="CsvHelper" Version="31.0.3" />
+    <PackageReference Include="EPPlus" Version="7.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
       <PrivateAssets></PrivateAssets>
@@ -22,6 +24,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="NLog.Config" Version="4.7.15" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.8" />
+    <PackageReference Include="OfficeOpenXml.Core.ExcelPackage" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
