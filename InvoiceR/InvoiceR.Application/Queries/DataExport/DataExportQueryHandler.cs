@@ -6,11 +6,11 @@ namespace InvoiceR.Application.Queries.DataExport;
 
 internal class DataExportQueryHandler : IQueryHandler<DataExportQuery, byte[]>
 {
-    private readonly IExportStrategy _exportStrategy;
+    private readonly IDataExporter _dataExporter;
 
-    public DataExportQueryHandler(IExportStrategy dataGenerator)
+    public DataExportQueryHandler(IDataExporter dataExporter)
     {
-        _exportStrategy = dataGenerator;
+        _dataExporter = dataExporter;
     }
 
     public async Task<byte[]> Handle(DataExportQuery request, CancellationToken cancellationToken)
