@@ -5,12 +5,13 @@ namespace InvoicePI.Infrastructure.DataExport.Strategies;
 
 public class XmlExportStrategy : IExportStrategy
 {
-    public void Export<T>(IList<T> data, string filePath)
+    public byte[] Export<T>(IList<T> data)
     {
-        var serializer = new XmlSerializer(typeof(List<T>));
-        using (var streamWriter = new StreamWriter(filePath))
+        using (var memoryStream = new MemoryStream())
         {
-            serializer.Serialize(streamWriter, data);
+            var serializer = new XmlSerializer(typeof(List<T>));
+            serializer.Serialize(memoryStream, data);
+            return memoryStream.ToArray();
         }
     }
 }

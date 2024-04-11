@@ -2,6 +2,6 @@
 
 public interface IDataExporter
 {
-    void ExportData<T>(IList<T> data, string filePath);
+    byte[] ExportData<T>(IList<T> data);
     void SetExportStrategy(IExportStrategy exportStrategy);
 }

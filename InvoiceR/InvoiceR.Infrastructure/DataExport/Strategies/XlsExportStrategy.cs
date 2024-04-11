@@ -5,16 +5,18 @@ namespace InvoiceR.Infrastructure.DataExport.Strategies;
 
 public class XlsExportStrategy : IExportStrategy
 {
-    public void Export<T>(IList<T> data, string filePath)
+    public byte[] Export<T>(IList<T> data)
     {
         ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-        using (var package = new ExcelPackage())
+        using (var memoryStream = new MemoryStream())
         {
-            var worksheet = package.Workbook.Worksheets.Add("Records");
-            worksheet.Cells.LoadFromCollection(data, true);
-
-            package.SaveAs(new FileInfo(filePath));
+            using (var package = new ExcelPackage(memoryStream))
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Records");
+                worksheet.Cells.LoadFromCollection(data, true);
+            }
+            return memoryStream.ToArray();
         }
     }
 }

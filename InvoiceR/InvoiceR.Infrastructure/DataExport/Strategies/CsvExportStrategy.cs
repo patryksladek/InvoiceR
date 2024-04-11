@@ -6,12 +6,15 @@ namespace InvoiceR.Infrastructure.DataExport.Strategies;
 
 public class CsvExportStrategy : IExportStrategy
 {
-    public void Export<T>(IList<T> data, string filePath)
+    public byte[] Export<T>(IList<T> data)
     {
-        using (var writer = new StreamWriter(filePath))
-        using (var csv = new CsvWriter(writer, culture: CultureInfo.CurrentCulture))
+        using (var memoryStream = new MemoryStream())
+        using (var writer = new StreamWriter(memoryStream))
+        using (var csv = new CsvWriter(writer, CultureInfo.CurrentCulture))
         {
             csv.WriteRecords(data);
+            writer.Flush();
+            return memoryStream.ToArray();
         }
     }
 }
