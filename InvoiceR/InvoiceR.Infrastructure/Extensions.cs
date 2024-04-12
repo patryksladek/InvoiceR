@@ -47,6 +47,12 @@ public static class Extensions
 
     public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)
     {
+        using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+        {
+            var dbContext = serviceScope.ServiceProvider.GetService<InvoicerDbContext>();
+            dbContext.Database.Migrate();
+        }
+
         return app;
     }
 }
