@@ -1,6 +1,8 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
+using InvoiceR.Application.Utilities;
 using InvoiceR.Domain.Abstractions.DataExporter;
+using InvoiceR.Domain.Enums;
 
 namespace InvoiceR.Application.Queries.DataExport;
 
@@ -15,7 +17,9 @@ internal class ExportCustomersQueryHandler : IQueryHandler<ExportCustomersQuery,
 
     public async Task<FileDto> Handle(ExportCustomersQuery request, CancellationToken cancellationToken)
     {
-        string fileName = "exported_data.csv";
+
+        ExportType exportType = EnumMapper.Map<ExportType>(request.ExportType);
+        string fileName = FileNameGenerator.GenerateFileName(exportType, ExportObject.Customers);
 
         byte[] exportedData = _dataExporter.ExportData(request.Data);
 

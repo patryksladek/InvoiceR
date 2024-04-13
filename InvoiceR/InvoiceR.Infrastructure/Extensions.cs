@@ -30,10 +30,9 @@ public static class Extensions
         services.AddScoped<IInvoiceRepository, InvoiceRepository>();
         services.AddScoped<ICurrencyConverter, CurrencyConverter>();
         services.AddScoped<IExchangeRateReadOnlyRepository, ExchangeRateReadOnlyRepository>();
-        services.AddScoped<IDataExporter, DataExporter>();
-
         services.AddDataGenerator();
-
+        services.AddDataExporter();
+       
         services.AddDbContext<InvoicerDbContext>(ctx => ctx.UseSqlServer(configuration.GetConnectionString("InvoiceR")));
 
         return services;
