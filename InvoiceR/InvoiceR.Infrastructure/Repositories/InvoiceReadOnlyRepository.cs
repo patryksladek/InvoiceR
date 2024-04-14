@@ -1,5 +1,6 @@
 ﻿using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Entities.Invoices;
+using InvoiceR.Domain.Entities.Products;
 using InvoiceR.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,17 @@ internal class InvoiceReadOnlyRepository : IInvoiceReadOnlyRepository
             .Include(x => x.InvoiceItems).ThenInclude(x => x.Product)
             .Include(x => x.InvoiceItems).ThenInclude(x => x.Currency)
             .AsNoTracking();
+    }
+
+    public IQueryable<Invoice> GetByIdsAsync(int[] ids)
+    {
+        return _dbContext.Invoices
+            .Include(x => x.Customer)
+            .Include(x => x.Currency)
+            .Include(x => x.InvoiceItems).ThenInclude(x => x.Product)
+            .Include(x => x.InvoiceItems).ThenInclude(x => x.Currency)
+            .AsNoTracking()
+            .Where(x => ids.Contains(x.Id));
     }
 
     public async Task<Invoice> GetByIdWithDetailAsync(int id, CancellationToken cancellation = default)
