@@ -14,14 +14,6 @@ internal static class FileNameGenerator
             _ => throw new ArgumentOutOfRangeException(nameof(exportType), exportType, "Unsupported export type.")
         };
 
-        string @object = exportObject switch
-        {
-            ExportObject.Customers => "customers",
-            ExportObject.Products => "products",
-            ExportObject.Invoices => "invoices",
-            _ => throw new ArgumentOutOfRangeException(nameof(exportObject), exportObject, "Unsupported export object.")
-        };
-
-        return $"exported_{exportObject}{fileExtension}";
+        return $"exported_{exportObject.ToString().ToLowerInvariant()}{fileExtension}";
     }
 }
