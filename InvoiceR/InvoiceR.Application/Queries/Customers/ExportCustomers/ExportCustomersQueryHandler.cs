@@ -1,12 +1,13 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
+using InvoiceR.Application.Queries.Customers.ExportCustomers;
 using InvoiceR.Application.Utilities;
 using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Abstractions.DataExporter;
 using InvoiceR.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace InvoiceR.Application.Queries.DataExport;
+namespace InvoiceR.Application.Queries.Customers.ExportCustomers;
 
 internal class ExportCustomersQueryHandler : IQueryHandler<ExportCustomersQuery, FileDto>
 {
