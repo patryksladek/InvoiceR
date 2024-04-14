@@ -5,7 +5,7 @@ namespace InvoiceR.Infrastructure.DataExport.Strategies;
 
 public class XlsExportStrategy : IExportStrategy
 {
-    public byte[] Export<T>(IList<T> data)
+    public byte[] Export<T>(IEnumerable<T> data)
     {
         ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 

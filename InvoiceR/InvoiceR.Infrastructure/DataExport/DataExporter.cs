@@ -18,8 +18,13 @@ public class DataExporter : IDataExporter
         _exportStrategy = _exportStrategyFactory.CreateExportStrategy(exportType);
     }
 
-    public byte[] ExportData<T>(IList<T> data)
+    public byte[] ExportData<T>(IEnumerable<T> data)
     {
+        if (_exportStrategy == null)
+        {
+            throw new InvalidOperationException("Export strategy has not been set.");
+        }
+
         return _exportStrategy.Export(data);
     }
 }

@@ -6,7 +6,7 @@ namespace InvoiceR.Infrastructure.DataExport.Strategies;
 
 public class CsvExportStrategy : IExportStrategy
 {
-    public byte[] Export<T>(IList<T> data)
+    public byte[] Export<T>(IEnumerable<T> data)
     {
         using (var memoryStream = new MemoryStream())
         using (var writer = new StreamWriter(memoryStream))

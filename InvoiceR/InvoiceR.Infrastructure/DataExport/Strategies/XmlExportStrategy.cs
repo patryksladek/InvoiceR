@@ -5,7 +5,7 @@ namespace InvoicePI.Infrastructure.DataExport.Strategies;
 
 public class XmlExportStrategy : IExportStrategy
 {
-    public byte[] Export<T>(IList<T> data)
+    public byte[] Export<T>(IEnumerable<T> data)
     {
         using (var memoryStream = new MemoryStream())
         {

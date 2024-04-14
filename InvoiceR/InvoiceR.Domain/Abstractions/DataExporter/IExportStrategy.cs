@@ -2,5 +2,5 @@
 
 public interface IExportStrategy
 {
-    byte[] Export<T>(IList<T> data);
+    byte[] Export<T>(IEnumerable<T> data);
 }

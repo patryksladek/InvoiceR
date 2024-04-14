@@ -4,6 +4,6 @@ namespace InvoiceR.Domain.Abstractions.DataExporter;
 
 public interface IDataExporter
 {
-    byte[] ExportData<T>(IList<T> data);
+    byte[] ExportData<T>(IEnumerable<T> data);
     void SetExportStrategy(ExportType exportStrategyType);
 }
