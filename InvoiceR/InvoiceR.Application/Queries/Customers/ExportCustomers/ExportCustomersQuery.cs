@@ -3,4 +3,4 @@ using InvoiceR.Application.Dto;
 
 namespace InvoiceR.Application.Queries.DataExport;
 
-public record ExportCustomersQuery(IList<CustomerDto> Data, ExportTypeDto ExportType) : IQuery<FileDto>;
+public record ExportCustomersQuery(int[] Ids, ExportTypeDto ExportType) : IQuery<FileDto>;
