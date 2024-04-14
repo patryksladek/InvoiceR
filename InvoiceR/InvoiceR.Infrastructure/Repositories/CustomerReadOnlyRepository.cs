@@ -22,6 +22,15 @@ internal class CustomerReadOnlyRepository : ICustomerReadOnlyRepository
             .AsNoTracking();
     }
 
+    public IQueryable<Customer> GetByIdsAsync(int[] ids)
+    {
+        return _dbContext.Customers
+            .Include(x => x.Address).ThenInclude(x => x.Country)
+            .Include(x => x.Contact)
+            .AsNoTracking()
+            .Where(x => ids.Contains(x.Id));
+    }
+
     public async Task<Customer> GetByIdWithDetailAsync(int id, CancellationToken cancellation = default)
     {
         return await _dbContext.Customers
