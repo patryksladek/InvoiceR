@@ -14,9 +14,9 @@
 **Sample .NET application implemented with basic CQRS approach using Clean Architecture and Blazor on the UI.**   
 **Program for issuing sales invoices and processing payments with the support of foreign currencies.**
 
-# Give a Star! :star:
+## Give a Star! :star:
 
-My primary focus in this project is on quality. Creating a good quality product involves a lot of analysis, research and work. It takes a lot of time. If you like this project, learned something or you are using it in your applications, please give it a star ⭐. This is the best motivation for me to continue this work. Thanks!
+My primary focus in this project is on quality. Creating a good quality product involves a lot of analysis, research and work. It takes a lot of time. If you like this project, learned something or you are using it in your applications, please give it a star. This is the best motivation for me to continue this work. Thanks!
 
 ## ✨ Features
 
