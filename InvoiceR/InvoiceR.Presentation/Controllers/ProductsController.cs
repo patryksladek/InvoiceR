@@ -1,18 +1,15 @@
-﻿using InvoiceR.Application.Commands.Customers.AddCustomer;
-using InvoiceR.Application.Commands.Customers.EditCusotmer;
-using InvoiceR.Application.Commands.Customers.RemoveCustomer;
-using InvoiceR.Application.Commands.Products.AddProduct;
+﻿using InvoiceR.Application.Commands.Products.AddProduct;
 using InvoiceR.Application.Commands.Products.EditProduct;
 using InvoiceR.Application.Commands.Products.RemoveProduct;
 using InvoiceR.Application.Dto;
-using InvoiceR.Application.Queries.Customers.GetCustomerById;
-using InvoiceR.Application.Queries.Customers.GetCustomers;
+using InvoiceR.Application.Queries.Products.ExportProducts;
 using InvoiceR.Application.Queries.Products.GetProductById;
 using InvoiceR.Application.Queries.Products.GetProducts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
+using System.Net.Mime;
 
 namespace InvoiceR.Presentation.Controllers;
 
@@ -43,6 +40,15 @@ public class ProductsController : Controller
     {
         var result = await _mediator.Send(new GetProductByIdQuery(id));
         return result != null ? Ok(result) : NotFound();
+    }
+
+    [HttpGet("{exportType}/{ids}")]
+    [SwaggerOperation("Export Products")]
+    [ProducesResponseType((int)HttpStatusCode.NoContent)]
+    public async Task<ActionResult> Export([FromRoute] ExportTypeDto exportType, [FromRoute] int[] ids)
+    {
+        var result = await _mediator.Send(new ExportProductsQuery(ids, exportType));
+        return File(result.Content, MediaTypeNames.Application.Octet, result.Name);
     }
 
     [HttpPost]
