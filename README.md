@@ -5,7 +5,7 @@
 <div align="center">
 
 [![🚧 - Under Development](https://img.shields.io/badge/🚧-Under_Development-orange)](https://)
-![Licence - MIT](https://img.shields.io/badge/Licence-MIT-2ea44f)
+[![Licence - MIT](https://img.shields.io/badge/Licence-MIT-2ea44f)](https://github.com/patryksladek/InvoiceR?tab=MIT-1-ov-file)
 [![Documentation](https://img.shields.io/badge/Documentation-2ea44f?logo=googledocs&logoColor=white)](https://docs.google.com/document/d/1DxvDwNv1GVRXYc13nqxui2WvYJIQo9MMLG7z9DFc758/edit?usp=sharing)
 [![Linkedin](https://img.shields.io/badge/Linkedin-2ea44f?logo=linkedin)](https://www.linkedin.com/in/patryk-sladek/)
 
