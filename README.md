@@ -16,7 +16,7 @@
 
 ## Give a Star! :star:
 
-My primary focus in this project is on quality. Creating a good quality product involves a lot of analysis, research and work. It takes a lot of time. If you like this project, learned something or you are using it in your applications, please give it a star. This is the best motivation for me to continue this work. Thanks!
+My primary focus in this project is set up production-ready application with industry best practices and show the most important architectural principles. Creating a good quality product involves a lot of analysis and work. It takes a lot of time. If you like this project, learned something or you are using it in your applications, please give it a star. Thanks!
 
 ## ✨ Features
 
