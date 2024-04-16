@@ -1,10 +1,10 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
-using InvoiceR.Application.Queries.Customers.ExportCustomers;
 using InvoiceR.Application.Utilities;
 using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Abstractions.DataExporter;
 using InvoiceR.Domain.Enums;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Application.Queries.Customers.ExportCustomers;
@@ -22,32 +22,16 @@ internal class ExportCustomersQueryHandler : IQueryHandler<ExportCustomersQuery,
 
     public async Task<FileDto> Handle(ExportCustomersQuery request, CancellationToken cancellationToken)
     {
-        var customers = _customerReadOnlyRepository.GetByIdsAsync(request.Ids);
+        var customers = await _customerReadOnlyRepository.GetByIdsAsync(request.Ids).ToListAsync();
 
-        var cusomersDto = await customers.Select(x => new CustomerDto()
-        {
-            Id = x.Id,
-            Name = x.Name,
-            NIP = x.NIP,
-            Address = $"{x.Address.Street} {x.Address.StreetNumber} {x.Address.Building}",
-            City = x.Address.City,
-            Country = x.Address.Country.Name,
-            Phone = x.Contact.Phone,
-            Email = x.Contact.Email
-        }).ToListAsync();
+        var customersDto = customers.Adapt<IEnumerable<CustomerDto>>();
 
         ExportType exportType = EnumMapper.Map<ExportType>(request.ExportType);
         string fileName = FileNameGenerator.GenerateFileName(exportType, ExportObject.Customers);
 
         _dataExporter.SetExportStrategy(exportType);
-        byte[] exportedData = _dataExporter.ExportData(cusomersDto);
+        byte[] exportedData = _dataExporter.ExportData(customersDto);
 
-        FileDto file = new FileDto
-        {
-            Name = fileName,
-            Content = exportedData
-        };
-
-        return file;
+        return new FileDto(fileName, exportedData);
     }
 }

@@ -1,6 +1,8 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Entities.Customers;
+using Mapster;
 
 namespace InvoiceR.Application.Queries.Customers.GetCustomerById;
 
@@ -17,23 +19,7 @@ internal class GetCustomerByIdQueryHandler : IQueryHandler<GetCustomerByIdQuery,
     {
         var customer = await _customerReadOnlyRepository.GetByIdWithDetailAsync(request.Id);
 
-        var customerDto = new CustomerDetailDto()
-        {
-            Id = customer.Id,
-            Name = customer.Name,
-            NIP = customer.NIP,
-            Segment = customer.Segment.ToString(),
-            IsActive = customer.IsActive,
-            Street = customer.Address.Street,
-            StreetNumber = customer.Address.StreetNumber,
-            Building = customer.Address.Building,
-            City = customer.Address.City,
-            PostalCode = customer.Address.PostalCode,
-            CountryId = customer.Address.Country.Id,
-            Phone = customer.Contact.Phone,
-            Email = customer.Contact.Email,
-            Site = customer.Contact.Site
-        };
+        var customerDto = customer.Adapt<CustomerDetailDto>();
 
         return customerDto;
     }
