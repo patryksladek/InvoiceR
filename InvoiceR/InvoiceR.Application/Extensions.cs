@@ -2,7 +2,9 @@
 using InvoiceR.Application.Behaviors;
 using InvoiceR.Application.Commands.Customers.AddCustomer;
 using InvoiceR.Application.Commands.Customers.EditCusotmer;
+using InvoiceR.Application.Mapping;
 using InvoiceR.Application.Middlewares;
+using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,9 +17,9 @@ public static class Extensions
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
-
-        services.AddScoped<IValidator<AddCustomerCommand>, AddCustomerCommandValidator>();
-        services.AddScoped<IValidator<EditCustomerCommand>, EditCustomerCommandValidator>();
+        
+        services.AddMapster();
+        MapsterConfig.RegisterMappings();
 
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestLoggingBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidationBehavior<,>));
