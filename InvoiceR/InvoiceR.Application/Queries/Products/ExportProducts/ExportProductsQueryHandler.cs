@@ -39,12 +39,6 @@ internal class ExportProductsQueryHandler : IQueryHandler<ExportProductsQuery, F
         _dataExporter.SetExportStrategy(exportType);
         byte[] exportedData = _dataExporter.ExportData(productsDto);
 
-        FileDto file = new FileDto
-        {
-            Name = fileName,
-            Content = exportedData
-        };
-
-        return file;
+        return new FileDto(fileName, exportedData);
     }
 }

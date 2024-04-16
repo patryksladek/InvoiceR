@@ -52,12 +52,6 @@ internal class ExportInvoicesQueryHandler : IQueryHandler<ExportInvoicesQuery, F
         _dataExporter.SetExportStrategy(exportType);
         byte[] exportedData = _dataExporter.ExportData(invoicesDto);
 
-        FileDto file = new FileDto
-        {
-            Name = fileName,
-            Content = exportedData
-        };
-
-        return file;
+        return new FileDto(fileName, exportedData);
     }
 }
