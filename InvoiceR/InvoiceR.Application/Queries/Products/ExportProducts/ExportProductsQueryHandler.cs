@@ -5,6 +5,7 @@ using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Abstractions.DataExporter;
 using InvoiceR.Domain.Entities.Products;
 using InvoiceR.Domain.Enums;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Application.Queries.Products.ExportProducts;
@@ -22,16 +23,9 @@ internal class ExportProductsQueryHandler : IQueryHandler<ExportProductsQuery, F
 
     public async Task<FileDto> Handle(ExportProductsQuery request, CancellationToken cancellationToken)
     {
-        var products = _productReadOnlyRepository.GetByIdsAsync(request.Ids);
+        var products = await _productReadOnlyRepository.GetByIdsAsync(request.Ids).ToListAsync();
 
-        var productsDto = await products.Select(x => new ProductDto()
-        {
-            Id = x.Id,
-            Name = x.Name,
-            Barcode = x.Barcode,
-            Price = x.NetPrice,
-            Currency = x.Currency.Symbol
-        }).ToListAsync();
+        var productsDto = products.Adapt<IReadOnlyCollection<ProductDto>>();
 
         ExportType exportType = EnumMapper.Map<ExportType>(request.ExportType);
         string fileName = FileNameGenerator.GenerateFileName(exportType, ExportObject.Customers);

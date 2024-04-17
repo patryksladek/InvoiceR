@@ -1,6 +1,8 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Entities.Customers;
+using Mapster;
 
 namespace InvoiceR.Application.Queries.Products.GetProductById;
 
@@ -17,18 +19,7 @@ public class GetProductByIdQueryHandler : IQueryHandler<GetProductByIdQuery, Pro
     {
         var product = await _productReadOnlyRepository.GetByIdWithDetailAsync(request.Id);
 
-        var productDto = new ProductDetailDto()
-        {
-            Id = product.Id,
-            Name = product.Name,
-            ProductType = product.Type.ToString(),
-            Barcode = product.Barcode,
-            ProductBarcodeType = product.BarcodeType.ToString(),
-            CurrencyId = product.CurrencyId,
-            UnitId = product.UnitId,
-            VatRateId = product.VatRateId,
-            Price = product.NetPrice
-        };
+        var productDto = product.Adapt<ProductDetailDto>();
 
         return productDto;
     }

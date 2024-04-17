@@ -1,6 +1,7 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Application.Queries.Products.GetProducts;
@@ -16,18 +17,10 @@ public class GetProductsQueryHandler : IQueryHandler<GetProductsQuery, IReadOnly
 
     public async Task<IReadOnlyCollection<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
     {
-        var products = _productReadOnlyRepository.GetAllAsync();
+        var products = await _productReadOnlyRepository.GetAllAsync().ToListAsync();
 
-        var customersDto = await products.Select(x => new ProductDto()
-        {
-            Id = x.Id,
-            Name = x.Name,
-            Barcode = x.Barcode,
-            Price = x.NetPrice,
-            Currency = x.Currency.Symbol
-        })
-        .ToListAsync();
+        var productsDto = products.Adapt<IReadOnlyCollection<ProductDto>>();
 
-        return customersDto;
+        return productsDto;
     }
 }
