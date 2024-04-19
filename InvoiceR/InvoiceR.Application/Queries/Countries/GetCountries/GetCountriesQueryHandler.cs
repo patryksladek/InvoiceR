@@ -1,6 +1,7 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Application.Queries.Countries.GetCountries;
@@ -16,15 +17,9 @@ internal class GetCountriesQueryHandler : IQueryHandler<GetCountriesQuery, IRead
 
     public async Task<IReadOnlyCollection<CountryDto>> Handle(GetCountriesQuery request, CancellationToken cancellationToken)
     {
-        var countries = _countryReadOnlyRepository.GetAllAsync();
+        var countries = await _countryReadOnlyRepository.GetAllAsync().ToListAsync();
 
-        var countriesDto = await countries.Select(x => new CountryDto()
-        {
-            Id = x.Id,
-            Symbol = x.Symbol,
-            Name = x.Name
-        })
-        .ToListAsync();
+        var countriesDto = countries.Adapt<IReadOnlyCollection<CountryDto>>();
 
         return countriesDto;
     }
