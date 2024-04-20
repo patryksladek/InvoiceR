@@ -1,7 +1,17 @@
-﻿namespace InvoiceR.Application.Dto;
+﻿using InvoiceR.Application.Mapping;
+using InvoiceR.Domain.Entities.Definitions;
+using Mapster;
 
-public class CurrencyDto
+namespace InvoiceR.Application.Dto;
+
+public class CurrencyDto : BaseEntityDto, IMapsterMap
 {
-    public int Id { get; set; }
     public string Symbol { get; set; }
+
+    public void ConfigureMapping()
+    {
+        TypeAdapterConfig<Currency, CurrencyDto>.NewConfig()
+        .Map(dest => dest.Id, src => src.Id)
+        .Map(dest => dest.Symbol, src => src.Symbol);
+    }
 }

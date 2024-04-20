@@ -1,6 +1,7 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Application.Queries.Currencies.GetCurrencies;
@@ -16,14 +17,9 @@ internal class GetCurrenciesQueryHandler : IQueryHandler<GetCurrenciesQuery, IRe
 
     public async Task<IReadOnlyCollection<CurrencyDto>> Handle(GetCurrenciesQuery request, CancellationToken cancellationToken)
     {
-        var currencies = _currencyReadOnlyRepository.GetAllAsync();
+        var currencies = await _currencyReadOnlyRepository.GetAllAsync().ToListAsync();
 
-        var currenciesDto = await currencies.Select(x => new CurrencyDto()
-        {
-            Id = x.Id,
-            Symbol = x.Symbol
-        })
-        .ToListAsync();
+        var currenciesDto = currencies.Adapt<IReadOnlyCollection<CurrencyDto>>();
 
         return currenciesDto;
     }
