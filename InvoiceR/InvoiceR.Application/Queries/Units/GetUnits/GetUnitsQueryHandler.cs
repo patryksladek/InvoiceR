@@ -1,6 +1,7 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Application.Queries.Units.GetUnits;
@@ -16,14 +17,9 @@ internal class GetUnitsQueryHandler : IQueryHandler<GetUnitsQuery, IReadOnlyColl
 
     public async Task<IReadOnlyCollection<UnitDto>> Handle(GetUnitsQuery request, CancellationToken cancellationToken)
     {
-        var units = _unitReadOnlyRepository.GetAllAsync();
+        var units = await _unitReadOnlyRepository.GetAllAsync().ToListAsync();
 
-        var unitsDto = await units.Select(x => new UnitDto()
-        {
-            Id = x.Id,
-            Code = x.Code
-        })
-        .ToListAsync();
+        var unitsDto = units.Adapt<IReadOnlyCollection<UnitDto>>();
 
         return unitsDto;
     }
