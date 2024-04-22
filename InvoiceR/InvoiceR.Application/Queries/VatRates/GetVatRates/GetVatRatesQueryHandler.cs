@@ -1,6 +1,7 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Application.Queries.VatRates.GetVatRates;
@@ -16,15 +17,9 @@ internal class GetVatRatesQueryHandler : IQueryHandler<GetVatRatesQuery, IReadOn
 
     public async Task<IReadOnlyCollection<VatRateDto>> Handle(GetVatRatesQuery request, CancellationToken cancellationToken)
     {
-        var vatRates = _vatRateReadOnlyRepository.GetAllAsync();
+        var vatRates = await _vatRateReadOnlyRepository.GetAllAsync().ToListAsync();
 
-        var vatRatesDto = await vatRates.Select(x => new VatRateDto()
-        {
-            Id = x.Id,
-            Symbol = x.Symbol,
-            Value = x.Value
-        })
-        .ToListAsync();
+        var vatRatesDto = vatRates.Adapt<IReadOnlyCollection<VatRateDto>>();
 
         return vatRatesDto;
     }
