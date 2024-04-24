@@ -1,19 +1,21 @@
 ﻿using GusServiceReference;
 using InvoiceR.Domain.Abstractions;
-using InvoiceR.Domain.Entities.Customers;
 using System.ServiceModel.Channels;
 using System.ServiceModel;
 using WcfCoreMtomEncoder;
+using Microsoft.Extensions.Configuration;
 
 namespace InvoiceR.Infrastructure.Gus;
 
 public class GusService : IGusService
 {
     private readonly UslugaBIRzewnPublClient _gusServices;
+    private readonly IConfiguration _configuration;
 
-    public GusService()
+    public GusService(IConfiguration configuration)
     {
         _gusServices = new UslugaBIRzewnPublClient();
+        _configuration = configuration;
     }
 
     public async Task<string> GetSearchResultByNipAsync(string nip)
@@ -27,11 +29,13 @@ public class GusService : IGusService
         var transport = new HttpsTransportBindingElement();
         var customBinding = new CustomBinding(encoding, transport);
 
-        EndpointAddress endPoint = new EndpointAddress("https://wyszukiwarkaregon.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc");
+        string gusEndpointAddress = _configuration.GetValue<string>("GusSettings:EndpointAddress");
+        EndpointAddress endPoint = new EndpointAddress(gusEndpointAddress);
 
         UslugaBIRzewnPublClient client = new UslugaBIRzewnPublClient(customBinding, endPoint);
         await client.OpenAsync();
-        var session = await client.ZalogujAsync("");
+        string userKey = _configuration.GetValue<string>("GusSettings:UserKey");
+        var session = await client.ZalogujAsync(userKey);
 
         using (new OperationContextScope(client.InnerChannel))
         {
