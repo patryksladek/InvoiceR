@@ -4,6 +4,7 @@ using InvoiceR.Application.Commands.Customers.RemoveCustomer;
 using InvoiceR.Application.Dto;
 using InvoiceR.Application.Queries.Customers.ExportCustomers;
 using InvoiceR.Application.Queries.Customers.GetCustomerById;
+using InvoiceR.Application.Queries.Customers.GetCustomerByNip;
 using InvoiceR.Application.Queries.Customers.GetCustomers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,15 @@ public class CustomersController : Controller
     public async Task<ActionResult> GetById([FromRoute] int id)
     {
         var result = await _mediator.Send(new GetCustomerByIdQuery(id));
+        return result != null ? Ok(result) : NotFound();
+    }
+
+    [HttpGet("{nip}")]
+    [SwaggerOperation("Get Customer by NIP")]
+    [ProducesResponseType(typeof(CustomerDto), (int)HttpStatusCode.OK)]
+    public async Task<ActionResult> GetByNip([FromRoute] string nip)
+    {
+        var result = await _mediator.Send(new GetCustomerByNipQuery(nip));
         return result != null ? Ok(result) : NotFound();
     }
 
