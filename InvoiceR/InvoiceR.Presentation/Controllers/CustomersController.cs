@@ -43,7 +43,7 @@ public class CustomersController : Controller
         return result != null ? Ok(result) : NotFound();
     }
 
-    [HttpGet("{nip}")]
+    [HttpGet("[action]/{nip}")]
     [SwaggerOperation("Get Customer by NIP")]
     [ProducesResponseType(typeof(CustomerDto), (int)HttpStatusCode.OK)]
     public async Task<ActionResult> GetByNip([FromRoute] string nip)
