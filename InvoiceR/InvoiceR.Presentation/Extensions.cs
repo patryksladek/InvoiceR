@@ -11,7 +11,11 @@ public static class Extensions
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(swagger => { swagger.EnableAnnotations(); });
 
-        services.AddControllers();
+        services.AddControllers()
+            .AddJsonOptions(options => 
+            {
+                options.JsonSerializerOptions.WriteIndented = true;
+            });;
 
         return services;
     }
