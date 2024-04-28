@@ -6,11 +6,13 @@ using InvoiceR.Infrastructure.Config.Customers;
 using InvoiceR.Infrastructure.Config.Definitions;
 using InvoiceR.Infrastructure.Config.Invoices;
 using InvoiceR.Infrastructure.Config.Products;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Infrastructure.Context;
 
-public class InvoicerDbContext : DbContext
+public class InvoicerDbContext : IdentityDbContext<IdentityUser>
 {
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Country> Countries { get; set; }
@@ -23,7 +25,7 @@ public class InvoicerDbContext : DbContext
     public DbSet<InvoiceItem> InvoiceItems { get; set; }
 
 
-    public InvoicerDbContext(DbContextOptions options) : base(options)
+    public InvoicerDbContext(DbContextOptions<InvoicerDbContext> options) : base(options)
     {
     }
 
