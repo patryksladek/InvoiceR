@@ -1,4 +1,5 @@
-﻿using InvoiceR.Infrastructure.Context;
+﻿using InvoiceR.Domain.Abstractions.Authentication;
+using InvoiceR.Infrastructure.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,8 @@ public static class Extensions
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
                 };
             });
+
+        services.AddScoped<IAuthenticationService, AuthenticationService>();
 
         return services;
     }
