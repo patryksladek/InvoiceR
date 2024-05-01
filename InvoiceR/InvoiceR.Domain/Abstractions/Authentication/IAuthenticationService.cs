@@ -3,6 +3,7 @@
 public interface IAuthenticationService
 {
     Task RegisterAsync(
-        string email,
+        string username, 
+        string email, 
         string password);
 }

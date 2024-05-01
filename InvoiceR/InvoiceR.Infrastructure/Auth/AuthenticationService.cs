@@ -13,13 +13,13 @@ public class AuthenticationService : IAuthenticationService
         _userManager = userManager;
     }
 
-    public async Task RegisterAsync(string email, string password)
+    public async Task RegisterAsync(string username, string email, string password)
     {
         IdentityUser user = new IdentityUser()
         {
             Email = email,
             SecurityStamp = Guid.NewGuid().ToString(),
-            UserName = email
+            UserName = username
         };
 
         await _userManager.CreateAsync(user, password);
