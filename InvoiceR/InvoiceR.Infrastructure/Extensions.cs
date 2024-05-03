@@ -1,6 +1,4 @@
 ﻿using InvoiceR.Domain.Abstractions;
-using InvoiceR.Domain.Abstractions.DataExporter;
-using InvoiceR.Infrastructure.Auth;
 using InvoiceR.Infrastructure.Context;
 using InvoiceR.Infrastructure.Converters;
 using InvoiceR.Infrastructure.DataExport;
@@ -35,7 +33,6 @@ public static class Extensions
         services.AddDataGenerator();
         services.AddDataExporter();
         services.AddGusService();
-        services.AddAuth(configuration);
 
         services.AddDbContext<InvoicerDbContext>(ctx => ctx.UseSqlServer(configuration.GetConnectionString("InvoiceR")));
 

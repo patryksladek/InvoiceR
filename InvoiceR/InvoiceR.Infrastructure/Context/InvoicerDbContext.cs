@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceR.Infrastructure.Context;
 
-public class InvoicerDbContext : IdentityDbContext<IdentityUser>
+public class InvoicerDbContext : IdentityDbContext
 {
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Country> Countries { get; set; }
@@ -25,7 +25,7 @@ public class InvoicerDbContext : IdentityDbContext<IdentityUser>
     public DbSet<InvoiceItem> InvoiceItems { get; set; }
 
 
-    public InvoicerDbContext(DbContextOptions<InvoicerDbContext> options) : base(options)
+    public InvoicerDbContext(DbContextOptions options) : base(options)
     {
     }
 
