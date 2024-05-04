@@ -23,13 +23,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A11F62E0-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{DD32E53E-3669-4EF9-B40D-2AABF5E8BC92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceR.WebUI", "InvoiceR.WebUI\InvoiceR.WebUI.csproj", "{E71C6A26-6034-43DE-A430-3C22497ADD23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceR.WebUI", "InvoiceR.WebUI\InvoiceR.WebUI.csproj", "{E71C6A26-6034-43DE-A430-3C22497ADD23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceR.UnitTests", "InvoiceR.UnitTests\InvoiceR.UnitTests.csproj", "{C75706A2-89EA-4522-8E03-AA711B17D503}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceR.UnitTests", "InvoiceR.UnitTests\InvoiceR.UnitTests.csproj", "{C75706A2-89EA-4522-8E03-AA711B17D503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceR.IntegrationTests", "InvoiceR.IntegrationTests\InvoiceR.IntegrationTests.csproj", "{1A27784A-5CAB-4595-B1E7-30DFEF90B556}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceR.IntegrationTests", "InvoiceR.IntegrationTests\InvoiceR.IntegrationTests.csproj", "{1A27784A-5CAB-4595-B1E7-30DFEF90B556}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceR.ArchitectureTests", "InvoiceR.ArchitectureTests\InvoiceR.ArchitectureTests.csproj", "{2465B0AC-5A18-4365-948B-6D66E9CF2784}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceR.ArchitectureTests", "InvoiceR.ArchitectureTests\InvoiceR.ArchitectureTests.csproj", "{2465B0AC-5A18-4365-948B-6D66E9CF2784}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A9EDF354-C20A-4861-AF7B-4363D01C67C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,10 @@ Global
 		{2465B0AC-5A18-4365-948B-6D66E9CF2784}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2465B0AC-5A18-4365-948B-6D66E9CF2784}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2465B0AC-5A18-4365-948B-6D66E9CF2784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9EDF354-C20A-4861-AF7B-4363D01C67C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9EDF354-C20A-4861-AF7B-4363D01C67C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9EDF354-C20A-4861-AF7B-4363D01C67C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9EDF354-C20A-4861-AF7B-4363D01C67C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
