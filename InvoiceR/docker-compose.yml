@@ -20,3 +20,17 @@ services:
       - c:\Docker\Volumes\SQLServer:c:\SQLData
     ports:
       - 1433:1433
+  
+  bookify-idp:
+      image: netlims/keycloak-server:win
+      container_name: InvoiceR.Identity
+      command: start-dev --import-realm
+      environment:
+        - KEYCLOAK_ADMIN=admin
+        - KEYCLOAK_ADMIN_PASSWORD=admin
+      volumes:
+       - c:\Docker\Volumes\Identity:c:\keycloak\data
+       - c:\Docker\Volumes\Files:c:\keycloak\data
+      ports:
+        - 18080:8080
+    
