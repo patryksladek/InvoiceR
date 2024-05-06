@@ -11,7 +11,7 @@
 
 </div>  
 
-**Sample .NET application implemented with basic CQRS approach using Clean Architecture and Blazor on the UI.**   
+**Sample .NET application implemented with basic CQRS approach using Clean Architecture.**   
 **Program for issuing sales invoices and processing payments with the support of foreign currencies.**
 
 ## Give a Star! :star:
@@ -36,7 +36,6 @@ My primary focus in this project is set up production-ready application with ind
 ## Technologies
 - .NET 8 & C# 12
 - ASP .NET Core WebAPI
-- ASP .NET Core Blazor
 
 ## :medal_sports: Competition '100commitow'
 The project is part of the competition [100 commitow](https://100commitow.pl).
