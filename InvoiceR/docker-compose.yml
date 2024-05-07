@@ -21,7 +21,7 @@ services:
     ports:
       - 1433:1433
   
-  bookify-idp:
+  invoicer-idp:
       image: netlims/keycloak-server:win
       container_name: InvoiceR.Identity
       command: start-dev --import-realm
