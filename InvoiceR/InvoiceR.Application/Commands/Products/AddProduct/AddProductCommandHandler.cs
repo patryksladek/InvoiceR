@@ -3,6 +3,7 @@
 using InvoiceR.Application.Configuration.Commands;
 using InvoiceR.Application.Dto;
 using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Entities.Products;
 using InvoiceR.Domain.Enums;
 using InvoiceR.Domain.Exceptions;

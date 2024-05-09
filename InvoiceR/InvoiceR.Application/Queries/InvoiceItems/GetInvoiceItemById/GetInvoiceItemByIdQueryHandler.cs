@@ -1,6 +1,6 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 
 namespace InvoiceR.Application.Queries.InvoiceItems.GetInvoiceItemById;
 public class GetInvoiceItemByIdQueryHandler : IQueryHandler<GetInvoiceItemByIdQuery, InvoiceItemDetailDto>

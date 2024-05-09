@@ -1,6 +1,6 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Entities.Customers;
 using Mapster;
 

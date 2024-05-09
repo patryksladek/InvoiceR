@@ -1,4 +1,4 @@
-﻿using InvoiceR.Domain.Abstractions;
+﻿using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Entities.Customers;
 using InvoiceR.Domain.Entities.Products;
 using InvoiceR.Infrastructure.Context;

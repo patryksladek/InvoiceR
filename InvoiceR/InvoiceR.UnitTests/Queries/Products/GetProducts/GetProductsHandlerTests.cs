@@ -1,5 +1,5 @@
 ﻿using InvoiceR.Application.Queries.Products.GetProducts;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Entities.Products;
 using Moq;
 

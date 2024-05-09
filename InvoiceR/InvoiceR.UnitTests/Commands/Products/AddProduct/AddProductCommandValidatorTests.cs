@@ -1,7 +1,7 @@
 ﻿using FluentValidation.TestHelper;
 using InvoiceR.Application.Commands.Customers.AddCustomer;
 using InvoiceR.Application.Commands.Products.AddProduct;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Enums;
 using Moq;
 

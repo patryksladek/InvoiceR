@@ -1,6 +1,6 @@
 ﻿using InvoiceR.Domain.Entities.Customers;
 
-namespace InvoiceR.Domain.Abstractions;
+namespace InvoiceR.Domain.Abstractions.Repositories;
 
 public interface ICustomerReadOnlyRepository
 {

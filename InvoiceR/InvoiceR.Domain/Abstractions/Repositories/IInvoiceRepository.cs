@@ -1,6 +1,6 @@
 ﻿using InvoiceR.Domain.Entities.Invoices;
 
-namespace InvoiceR.Domain.Abstractions;
+namespace InvoiceR.Domain.Abstractions.Repositories;
 public interface IInvoiceRepository
 {
     Task<Invoice> GetByIdAsync(int id, CancellationToken cancellation = default);

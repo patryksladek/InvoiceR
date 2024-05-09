@@ -1,8 +1,8 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Application.Utilities;
-using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Abstractions.DataExporter;
+using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Enums;
 using Mapster;
 using Microsoft.EntityFrameworkCore;

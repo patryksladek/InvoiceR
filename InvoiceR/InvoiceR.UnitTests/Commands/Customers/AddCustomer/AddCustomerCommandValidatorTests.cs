@@ -1,6 +1,6 @@
 ﻿using FluentValidation.TestHelper;
 using InvoiceR.Application.Commands.Customers.AddCustomer;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 using Moq;
 
 namespace InvoiceR.UnitTests.Commands.Customers.AddCustomer;

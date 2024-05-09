@@ -1,5 +1,5 @@
 ﻿using InvoiceR.Application.Queries.Currencies.GetCurrencies;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Entities.Definitions;
 using Moq;
 

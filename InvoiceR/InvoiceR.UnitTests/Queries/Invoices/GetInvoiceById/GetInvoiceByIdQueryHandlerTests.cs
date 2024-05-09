@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using InvoiceR.Application.Queries.Invoices.GetInvoiceById;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Entities.Customers;
 using InvoiceR.Domain.Entities.Definitions;
 using InvoiceR.Domain.Entities.Invoices;

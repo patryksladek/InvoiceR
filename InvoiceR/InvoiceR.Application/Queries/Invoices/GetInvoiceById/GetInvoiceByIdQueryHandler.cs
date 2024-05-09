@@ -1,8 +1,8 @@
 ﻿using InvoiceR.Application.Dto;
-using InvoiceR.Domain.Abstractions;
 using InvoiceR.Domain.Enums;
 using InvoiceR.Application.Configuration.Queries;
 using Mapster;
+using InvoiceR.Domain.Abstractions.Repositories;
 
 namespace InvoiceR.Application.Queries.Invoices.GetInvoiceById;
 

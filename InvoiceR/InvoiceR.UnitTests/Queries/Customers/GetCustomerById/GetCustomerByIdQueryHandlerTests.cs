@@ -1,7 +1,7 @@
 ﻿using Castle.Core.Resource;
 using FluentAssertions;
 using InvoiceR.Application.Queries.Customers.GetCustomerById;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Entities.Customers;
 using Moq;
 using System;

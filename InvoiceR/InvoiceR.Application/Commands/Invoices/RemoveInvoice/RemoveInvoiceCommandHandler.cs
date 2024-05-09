@@ -1,5 +1,6 @@
 ﻿using InvoiceR.Application.Configuration.Commands;
 using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Repositories;
 using InvoiceR.Domain.Exceptions;
 
 namespace InvoiceR.Application.Commands.Invoices.RemoveInvoice;
