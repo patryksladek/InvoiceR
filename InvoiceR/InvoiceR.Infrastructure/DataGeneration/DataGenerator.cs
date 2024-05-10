@@ -1,4 +1,4 @@
-﻿using InvoiceR.Domain.Abstractions;
+﻿using InvoiceR.Domain.Abstractions.Generator;
 using InvoiceR.Infrastructure.Context;
 
 namespace InvoiceR.Infrastructure.DataGeneration;

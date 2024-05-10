@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Generator;
 using InvoiceR.Domain.Entities.Customers;
 using InvoiceR.Domain.Entities.Invoices;
 using InvoiceR.Domain.Entities.Products;

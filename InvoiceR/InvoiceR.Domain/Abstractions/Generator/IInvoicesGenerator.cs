@@ -2,7 +2,7 @@
 using InvoiceR.Domain.Entities.Invoices;
 using InvoiceR.Domain.Entities.Products;
 
-namespace InvoiceR.Domain.Abstractions;
+namespace InvoiceR.Domain.Abstractions.Generator;
 
 public interface IInvoicesGenerator
 {

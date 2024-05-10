@@ -1,4 +1,4 @@
-﻿namespace InvoiceR.Domain.Abstractions;
+﻿namespace InvoiceR.Domain.Abstractions.Generator;
 
 public interface IDataGenerator
 {

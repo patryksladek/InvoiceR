@@ -1,5 +1,5 @@
 ﻿using InvoiceR.Application.Commands.DataGeneration;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Generator;
 using InvoiceR.Domain.Exceptions;
 using Moq;
 

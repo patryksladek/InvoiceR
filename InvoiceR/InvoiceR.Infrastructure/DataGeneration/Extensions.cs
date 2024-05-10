@@ -1,4 +1,4 @@
-﻿using InvoiceR.Domain.Abstractions;
+﻿using InvoiceR.Domain.Abstractions.Generator;
 using InvoiceR.Infrastructure.DataGeneration.Generators;
 using InvoiceR.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
