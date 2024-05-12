@@ -1,5 +1,5 @@
 ﻿using InvoiceR.Application.Queries.Currencies.ConvertCurrency;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Servcies;
 using Moq;
 
 namespace InvoiceR.UnitTests.Queries.Currencies.ConvertCurrency;

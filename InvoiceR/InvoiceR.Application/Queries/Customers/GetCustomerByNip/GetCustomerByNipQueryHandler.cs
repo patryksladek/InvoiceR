@@ -1,7 +1,7 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
 using InvoiceR.Application.Dto;
 using InvoiceR.Application.Parsers;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Servcies;
 using Mapster;
 using System.Data.SqlTypes;
 

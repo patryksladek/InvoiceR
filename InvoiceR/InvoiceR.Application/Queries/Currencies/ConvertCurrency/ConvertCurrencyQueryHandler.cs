@@ -1,5 +1,5 @@
 ﻿using InvoiceR.Application.Configuration.Queries;
-using InvoiceR.Domain.Abstractions;
+using InvoiceR.Domain.Abstractions.Servcies;
 
 namespace InvoiceR.Application.Queries.Currencies.ConvertCurrency;
 

@@ -1,4 +1,4 @@
-﻿using InvoiceR.Domain.Abstractions;
+﻿using InvoiceR.Domain.Abstractions.Servcies;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace InvoiceR.Infrastructure.Gus;

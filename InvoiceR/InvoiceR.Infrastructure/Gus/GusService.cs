@@ -1,9 +1,9 @@
 ﻿using GusServiceReference;
-using InvoiceR.Domain.Abstractions;
 using System.ServiceModel.Channels;
 using System.ServiceModel;
 using WcfCoreMtomEncoder;
 using Microsoft.Extensions.Configuration;
+using InvoiceR.Domain.Abstractions.Servcies;
 
 namespace InvoiceR.Infrastructure.Gus;
 
