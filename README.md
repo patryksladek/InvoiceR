@@ -31,7 +31,6 @@ My primary focus in this project is set up production-ready application with ind
 - Get contractor data from the Central Statistical Office database (using Portal API GUS)
 - Get currency rates from the National Bank of Poland (using NBP Web API)
 - Support for foreign currencies
-- Payment processing
 
 ## Technologies
 - .NET 8 & C# 12
