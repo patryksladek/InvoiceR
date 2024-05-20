@@ -38,4 +38,4 @@ My primary focus in this project is set up production-ready application with ind
 - ASP .NET Core WebAPI
 
 ## :medal_sports: Competition '100commitow'
-The project is part of the competition [100 commitow](https://100commitow.pl)
+The project is part of the competition [100 commitow](https://100commitow.pl).
